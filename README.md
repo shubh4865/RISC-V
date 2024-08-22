@@ -1,41 +1,8 @@
 # RISC-V
-Pronounced as risk five
-Started as a research project in 2010 at UC Berkeley
-Commercial ISAs were too complex and presented IP legal issues
-RISC-V is available freely under a permissive license
-RISC-V is not a company, it is not a CPU Implementation
-RISC-V uses a standard naming convention to describe the ISAs supported in a given implementation
-ISA Name format: RV[###][abc…..xyz]
-RV – Indicates a RISC-V architecture
-[###] - {32, 64, 128} indicate the width of the integer register file and the size of the user address space
-[abc…xyz] – Used to indicate the set of extensions supported by an implementation.
-Structure of the ISA
-Small amount of fixed-size registers
-For RV32I, 32 32-bit registers (32 64-bit registers for RV64)
-A question: Why isn’t this number larger? Why not 1024 registers?
-Another question: Why not zero?
-Three types of instructions:
-Computational operation: from register file to register file
-xd = Op(xa , xb ), where Op ∈ {+, -, AND, OR, >, <, …}
-Op implemented in ALU
-Load/Store: between memory and register file
-Control flow: jump to different part of code
-Base Integer ISA Encoding
-Base Integer ISA Encoding
-32-bit fixed-width, naturally aligned instructions
-rd/rs1/rs2 in fixed location, no implicit registers
-Immediate field (imm[31]) always sign-extended
-Instruction Encoding Types
-R-type – Register
-I-type – Immediate
-S-type – Stores
-U-Type – Loads with immediate
-Base Integer ISA
-With only 47 instructions, the RV32I base integer ISA implements the absolutely necessary operations to achieve basic functionality with 32-bit integers (its 64-bit variant is RV64I). This ISA, encoded in 32-bits, includes instructions for:
-Addition
-Subtraction
-Bitwise operations
-Load and store
-Jumps
-Branches
-The base ISA also specifies the 32 CPU registers, which are all 32-bits wide, plus the program counter. The only special register is x0, which always reads 0.
+RISC-V, pronounced "Risk-Five," originated as a research project in 2010 at the University of California, Berkeley. The motivation behind its development was the complexity of existing commercial instruction set architectures (ISAs) and the legal challenges posed by intellectual property (IP) rights. To address these issues, RISC-V was designed as a simple, open-source alternative, freely available under a permissive license. Unlike proprietary ISAs, RISC-V is not a company or a specific CPU implementation; instead, it serves as a flexible ISA that anyone can implement.
+
+RISC-V uses a standard naming convention to describe the supported ISAs in a given implementation. The naming format, RV[###][abc…xyz], indicates a RISC-V architecture, where [###] specifies the width of the integer register file and the size of the user address space, and [abc…xyz] denotes the set of extensions supported by the implementation. The structure of RISC-V’s ISA is characterized by a small number of fixed-size registers, with RV32I featuring 32 32-bit registers and RV64 having 32 64-bit registers. This design choice keeps the architecture simple and reduces complexity, striking a balance between efficiency and functionality.
+
+RISC-V instructions are categorized into three types: computational operations, load/store operations, and control flow instructions. Computational operations involve performing arithmetic and logical functions on data within registers, while load/store operations handle data transfer between memory and the register file. Control flow instructions manage the program’s execution, directing jumps to different code segments as needed. The base integer ISA in RISC-V is encoded using 32-bit fixed-width, naturally aligned instructions, with specific types like R-type, I-type, S-type, and U-type instructions that handle various operations.
+
+The RV32I base integer ISA includes 47 instructions that implement essential operations for basic 32-bit integer functionality, and its 64-bit variant, RV64I, extends this capability. These instructions cover arithmetic operations like addition and subtraction, bitwise operations, data transfers, and control flow management. The base ISA also specifies 32 CPU registers, each 32 bits wide, with the program counter included as well. Notably, the x0 register is special, always reading as zero. In summary, RISC-V’s open-source, modular design offers a simple yet powerful ISA that is adaptable to a wide range of computing needs, from embedded systems to high-performance processors.
